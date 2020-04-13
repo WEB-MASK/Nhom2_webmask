@@ -1,19 +1,16 @@
 <?php
-include("connect.php");
-// hask pass
-
+session_start();  
+session_destroy();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../linearicons/style.css">
-    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./linearicons/style.css">
+    <link rel="stylesheet" href="./css/all.css">
 
 </head>
 
@@ -25,15 +22,15 @@ include("connect.php");
                     <div class="content">
                         <div class="head">
                             <div class="logo">
-                                <img src="../img/covid.png" alt="">
+                                <img src="./img/covid.png" alt="">
                                 <p class="lead">Login to your account</p>
                             </div>
-                            <form action="" class="form-login">
+                            <form action="./php/eventLogin.php" class="form-login" method="POST">
                                 <div class="form-group">
-                                    <input type="email" class="form-control" id="signin-email" value="" placeholder="Email">
+                                    <input type="email" class="form-control" name ="user" id="signin-email" value="" placeholder="Email">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" id="signin-password" value="thisisthepassword" placeholder="Password">
+                                    <input type="password" class="form-control" name="pass" id="signin-password" value="" placeholder="Password">
                                 </div>
                                 <div class="form-group remember">
                                     <label for="" class="elem-left">
@@ -64,7 +61,7 @@ include("connect.php");
         </div>
     </div>
 
-    <script src="../js/all.js"></script>
+    <script src="./js/all.js"></script>
 </body>
 
 </html>

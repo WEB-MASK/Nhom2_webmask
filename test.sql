@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 12, 2020 lúc 02:57 AM
--- Phiên bản máy phục vụ: 10.4.8-MariaDB
--- Phiên bản PHP: 7.3.10
+-- Thời gian đã tạo: Th4 13, 2020 lúc 05:38 PM
+-- Phiên bản máy phục vụ: 10.4.11-MariaDB
+-- Phiên bản PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `qlkt`
+-- Cơ sở dữ liệu: `test`
 --
 
 -- --------------------------------------------------------
@@ -45,30 +45,6 @@ INSERT INTO `cthd` (`IDCTHD`, `IDHoaDon`, `KhauTrangID`, `SoLuong`) VALUES
 (3, 2, 'KT4', 7),
 (4, 3, 'KT5', 3),
 (5, 4, 'KT6', 1);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `hieukhautrang`
---
-
-CREATE TABLE `hieukhautrang` (
-  `HieuKhauTrangID` varchar(10) NOT NULL,
-  `TenHieuKT` varchar(100) NOT NULL DEFAULT 'Chưa đặt tên'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `hieukhautrang`
---
-
-INSERT INTO `hieukhautrang` (`HieuKhauTrangID`, `TenHieuKT`) VALUES
-('3M', '3M'),
-('CM', 'Cambridge Mask'),
-('NM', 'NeoMask'),
-('PIT', 'PITTA'),
-('UCharm', 'Unicharm'),
-('VOGM', 'VogMask'),
-('XM', 'Xiaomi');
 
 -- --------------------------------------------------------
 
@@ -123,7 +99,7 @@ INSERT INTO `khachhang` (`KHID`, `HoTen`, `DiaChi`, `SoDT`, `NgaySinh`) VALUES
 --
 
 CREATE TABLE `khautrang` (
-  `KhauTrangID` varchar(10) NOT NULL,
+  `IDKhauTrang` varchar(10) NOT NULL,
   `TenKhauTrang` varchar(100) NOT NULL DEFAULT 'Chưa có tên',
   `HieuKhauTrangID` varchar(10) NOT NULL,
   `NUOCSX` varchar(255) DEFAULT NULL,
@@ -135,7 +111,7 @@ CREATE TABLE `khautrang` (
 -- Đang đổ dữ liệu cho bảng `khautrang`
 --
 
-INSERT INTO `khautrang` (`KhauTrangID`, `TenKhauTrang`, `HieuKhauTrangID`, `NUOCSX`, `Gia`, `SoLuong`) VALUES
+INSERT INTO `khautrang` (`IDKhauTrang`, `TenKhauTrang`, `HieuKhauTrangID`, `NUOCSX`, `Gia`, `SoLuong`) VALUES
 ('KT1', 'N95', 'CM', 'Anh Quốc', 33000, 1500),
 ('KT2', 'Vogmass N99', 'VOGM', 'Mỹ', 200000, 2000),
 ('KT3', 'Vogmass N99 CV', 'VOGM', 'Mỹ', 300000, 3296),
@@ -146,11 +122,35 @@ INSERT INTO `khautrang` (`KhauTrangID`, `TenKhauTrang`, `HieuKhauTrangID`, `NUOC
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `nhacungcap`
+--
+
+CREATE TABLE `nhacungcap` (
+  `idNCC` varchar(10) NOT NULL,
+  `TenNCC` varchar(100) NOT NULL DEFAULT 'Chưa đặt tên'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `nhacungcap`
+--
+
+INSERT INTO `nhacungcap` (`idNCC`, `TenNCC`) VALUES
+('3M', '3M'),
+('CM', 'Cambridge Mask'),
+('NM', 'NeoMask'),
+('PIT', 'PITTA'),
+('UCharm', 'Unicharm'),
+('VOGM', 'VogMask'),
+('XM', 'Xiaomi');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `nhanvien`
 --
 
 CREATE TABLE `nhanvien` (
-  `NhanVienID` int(11) NOT NULL,
+  `IDNhanVien` int(11) NOT NULL,
   `HoTen` varchar(40) DEFAULT NULL,
   `SoDT` varchar(20) DEFAULT NULL,
   `NGVL` date DEFAULT NULL,
@@ -161,7 +161,7 @@ CREATE TABLE `nhanvien` (
 -- Đang đổ dữ liệu cho bảng `nhanvien`
 --
 
-INSERT INTO `nhanvien` (`NhanVienID`, `HoTen`, `SoDT`, `NGVL`, `LUONG`) VALUES
+INSERT INTO `nhanvien` (`IDNhanVien`, `HoTen`, `SoDT`, `NGVL`, `LUONG`) VALUES
 (1, 'Trần Chí Công', '098448884', '2017-10-10', 7800000),
 (2, 'Lại Phúc', '088488489', '2017-03-10', 6700000),
 (3, 'Tiêu Nhược Hy', '038374747', '2018-10-12', 10200000);
@@ -178,7 +178,6 @@ CREATE TABLE `users` (
   `Last_name` varchar(40) NOT NULL,
   `Password` varchar(1000) NOT NULL,
   `Email` varchar(255) NOT NULL,
-  `Registration_date` datetime NOT NULL,
   `User_level` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -186,9 +185,10 @@ CREATE TABLE `users` (
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`userid`, `First_name`, `Last_name`, `Password`, `Email`, `Registration_date`, `User_level`) VALUES
-(1, 'Jully', 'Vui', '123', 'Vuitrannb@gmail.com', '2020-04-08 03:00:00', 'Admin'),
-(2, 'Tuan', 'Minh', 'TuanMinh', 'TuanMinh72@wru.vn', '2020-04-08 05:08:00', 'NhanVien');
+INSERT INTO `users` (`userid`, `First_name`, `Last_name`, `Password`, `Email`, `User_level`) VALUES
+(1, 'Jully', 'Vui', '123', 'Vuitrannb@gmail.com', 'Admin'),
+(2, 'Tuan', 'Minh', 'TuanMinh', 'TuanMinh72@wru.vn', 'NhanVien'),
+(3, 'Jullya', 'Vui', '123a', 'Vuitrannb@gmail.coma', 'Admin');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -201,12 +201,6 @@ ALTER TABLE `cthd`
   ADD PRIMARY KEY (`IDCTHD`),
   ADD KEY `IDHoaDon` (`IDHoaDon`),
   ADD KEY `KhauTrangID` (`KhauTrangID`);
-
---
--- Chỉ mục cho bảng `hieukhautrang`
---
-ALTER TABLE `hieukhautrang`
-  ADD PRIMARY KEY (`HieuKhauTrangID`);
 
 --
 -- Chỉ mục cho bảng `hoadon`
@@ -226,14 +220,20 @@ ALTER TABLE `khachhang`
 -- Chỉ mục cho bảng `khautrang`
 --
 ALTER TABLE `khautrang`
-  ADD PRIMARY KEY (`KhauTrangID`),
+  ADD PRIMARY KEY (`IDKhauTrang`),
   ADD KEY `HieuKhauTrangID` (`HieuKhauTrangID`);
+
+--
+-- Chỉ mục cho bảng `nhacungcap`
+--
+ALTER TABLE `nhacungcap`
+  ADD PRIMARY KEY (`idNCC`);
 
 --
 -- Chỉ mục cho bảng `nhanvien`
 --
 ALTER TABLE `nhanvien`
-  ADD PRIMARY KEY (`NhanVienID`);
+  ADD PRIMARY KEY (`IDNhanVien`);
 
 --
 -- Chỉ mục cho bảng `users`
@@ -267,13 +267,13 @@ ALTER TABLE `khachhang`
 -- AUTO_INCREMENT cho bảng `nhanvien`
 --
 ALTER TABLE `nhanvien`
-  MODIFY `NhanVienID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IDNhanVien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -284,20 +284,20 @@ ALTER TABLE `users`
 --
 ALTER TABLE `cthd`
   ADD CONSTRAINT `cthd_ibfk_1` FOREIGN KEY (`IDHoaDon`) REFERENCES `hoadon` (`IDHoaDon`),
-  ADD CONSTRAINT `cthd_ibfk_2` FOREIGN KEY (`KhauTrangID`) REFERENCES `khautrang` (`KhauTrangID`);
+  ADD CONSTRAINT `cthd_ibfk_2` FOREIGN KEY (`KhauTrangID`) REFERENCES `khautrang` (`IDKhauTrang`);
 
 --
 -- Các ràng buộc cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
   ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`KHID`) REFERENCES `khachhang` (`KHID`),
-  ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`NhanVienID`) REFERENCES `nhanvien` (`NhanVienID`);
+  ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`NhanVienID`) REFERENCES `nhanvien` (`IDNhanVien`);
 
 --
 -- Các ràng buộc cho bảng `khautrang`
 --
 ALTER TABLE `khautrang`
-  ADD CONSTRAINT `khautrang_ibfk_1` FOREIGN KEY (`HieuKhauTrangID`) REFERENCES `hieukhautrang` (`HieuKhauTrangID`);
+  ADD CONSTRAINT `khautrang_ibfk_1` FOREIGN KEY (`HieuKhauTrangID`) REFERENCES `nhacungcap` (`idNCC`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

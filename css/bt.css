@@ -1,0 +1,92 @@
+
+  .label,.value{
+    display: block;
+    float: left;
+    margin-left: 10px;
+}
+/* form */
+.frm{
+    display: block;
+    border: #56a4fe 3px solid;
+    padding: 10px 5px;
+}
+.bangdulieu{
+    display: block;
+    width: auto;
+    border: #56a4fe 1px solid;
+    margin: 20px 0px;
+    padding-top: 20px;
+}
+
+/* bảng dữ liệu */
+table.list, table.list td{
+	border:1px solid #cccccc;
+	border-collapse:collapse;
+	padding:5px;
+}
+.list{
+    margin: 20px;
+}
+/* bảng dữ liệu giangvien.html */
+.table-data,.table-data td{
+    border:1px solid #cccccc;
+	border-collapse:collapse;
+	padding:5px;
+    margin: 15px;
+}
+.click{
+  display: block;
+  width: 70px;
+  height: 30px;
+  background-color: #56a4fe;
+}
+.col1{
+  display: block;
+  float: left;
+  width: 10%;
+}
+.col2{
+  display: block;
+  float: left;
+  width: 20%;
+}
+.col3{
+  display: block;
+  float: left;
+  width: 30%;
+}
+.col4{
+  display: block;
+  float: left;
+  width: 40%;
+}
+.col5{
+  display: block;
+  float: left;
+  width: 50%;
+}
+.col6{
+  display: block;
+  float: left;
+  width: 60%;
+}
+.col7{
+  display: block;
+  float: left;
+  width: 70%;
+}
+.col8{
+  display: block;
+  float: left;
+  width: 80%;
+}
+.col9{
+  display: block;
+  float: left;
+  width: 90%;
+}
+.col10{
+  display: block;
+  float: left;
+  width: 100%;
+}

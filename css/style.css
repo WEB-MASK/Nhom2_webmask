@@ -78,7 +78,7 @@ body {
     display: block;
     width: 100%;
     height: 100%;
-    background: rgba(99, 156, 185, 0.92);
+    background-image: url(../img/lee.jpg);
     opacity: 0.8;
 }
 
@@ -304,7 +304,7 @@ input::placeholder {
 
 */ #sidebar-nav {
     padding-top: 80px;
-    z-index: -3;
+    z-index: auto;
 }
 
 .nav>li {
@@ -421,7 +421,7 @@ a {
     fill: #777777;
 }
 
-#chevron-left {
+.chevron-left {
     float: right;
     margin-right: 10px;
     font-size: 12px;
@@ -429,6 +429,7 @@ a {
 }
 
 #subPages {
+    display: none;
     padding-top: 62px;
     height: -webkit-fill-available;
 }
@@ -543,7 +544,11 @@ ul li {
     background-color: rgb(250, 250, 250);
     border: 1px solid rgba(0, 0, 0, .15);
     border-radius: 4px;
-    z-index: 1999;
+
+}
+.user {
+    
+    z-index: 20;
 }
 
 
@@ -551,7 +556,7 @@ ul li {
 
 .main {
     height: inherit;
-    z-index: -4;
+    z-index: 4;
     margin-top: 82px;
     width: calc(100% - 260px);
     right: 0;

@@ -5,7 +5,7 @@ function addNav()
 {
     echo '<nav class="navbar">
     <div class="brand">
-        <a href="index.html">
+        <a href="index.php">
             <img src="./img/logo-dark.png" alt="">
         </a>
     </div>
@@ -70,7 +70,7 @@ function addSidebar()
             <nav>
                 <ul class="nav">
                     <li>
-                        <a href="index.html" class="active">
+                        <a href="index.php" class="active">
                             <i class="lnr lnr-home"></i>
                             <span>Dashboard</span>
                         </a>
@@ -79,8 +79,8 @@ function addSidebar()
                         <a href="">
                             <i class="lnr lnr-file-empty"></i>
                             <span>Pages</span>
-                            <i class="icon-submenu lnr lnr-chevron-left" id="chevron-left"></i>
-                            <!-- <div id="subPages">
+                            <i class="icon-submenu lnr lnr-chevron-left chevron-left"></i>
+                            <div id="subPages">
                                 <ul class="nav1">
                                     <li>
                                         <a href="">Profile</a>
@@ -92,7 +92,7 @@ function addSidebar()
                                         <a href="">Locksreen</a>
                                     </li>
                                 </ul>
-                            </div> -->
+                            </div>
 
                         </a>
                     </li>
@@ -104,7 +104,7 @@ function addSidebar()
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="./QLTaiKhoan.php">
                             <i class="lnr lnr-user"></i>
                             <span>Quản Lý Tài Khoản (admin) </span>
                         </a>
@@ -119,5 +119,34 @@ function addSidebar()
     </div>
 </div>';
 }
-
+function addUser(){
+    echo '<div class="user">
+    <ul class="dropdown-menu">
+        <li>
+            <a href="">
+                <i class="lnr lnr-user"></i>
+                <span>My Profile</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <i class="lnr lnr-envelope"></i>
+                <span>Message</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <i class="lnr lnr-cog"></i>
+                <span>Settings</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <i class="lnr lnr-exit"></i>
+                <span>Logout</span>
+            </a>
+        </li>
+    </ul>
+</div>';
+}
 ?>
