@@ -1,27 +1,22 @@
-// var userdrop = document.getElementsByClassName(" usedrop")[0];
-// var userpro = document.getElementsByClassName("user")[0];
-// userdrop.addEventListener("click", UserPro);
-
-// function UserPro() {
-//     if (userpro.style.display == 'none') { alert("h"); }
-//     //else { alert("h");}
-// }
-
 // Bắt sự kiện zoom ấn F11
-var expand = document.getElementsByClassName("expand")[0];
-expand.addEventListener("click", Zoom);
-
-function Zoom(ev) {
-    ev.which == '122';
-}
+window.addEventListener('load', function() {
+    document.querySelector(".expand").addEventListener('click', function() {
+        var elem = document.documentElement;
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { /* Firefox */
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE/Edge */
+            elem.msRequestFullscreen();
+        }
+    })
+});
 
 // btn circle
 function frame(x) {
-    // if (!x.classList.toggle("lnr-arrow-right-circle")) {
-    //     console.log("hi");
-    // } else {
-    //     console.log("he");
-    // }
+
 
     var btn = document.getElementsByClassName("btn")[0].firstElementChild.className;
     console.log(btn);
@@ -43,6 +38,94 @@ function frame(x) {
 }
 
 function myFunction(x) {
+
     x.classList.toggle("lnr-arrow-right-circle");
     var main = document.getElementsByClassName("main")[0];
+
 }
+
+
+// Click user
+window.addEventListener('load', function() {
+    var usedrop = document.querySelector(".usedrop");
+    usedrop.addEventListener('click', function() {
+        var user = document.getElementsByClassName("user")[0];
+        if (user.style.display == 'none') {
+            user.style.display = 'grid';
+            usedrop.style.padding = "0px 20px";
+            usedrop.style.background = "#fafafa";
+            // padding: 0 px 20 px;
+            // background - color:
+            usedrop.style.height = "fit-content";
+            // height: fit - content;
+        } else {
+            user.style.display = 'none';
+            usedrop.style.background = "none";
+        }
+        return false;
+    });
+    document.getElementById("bodymain").addEventListener('click', e => {
+        var user = document.getElementsByClassName("user")[0];
+        var usedrop = document.querySelector(".usedrop");
+        if (!user.contains(e.target) && (!usedrop.contains(e.target))) {
+            user.style.display = 'none';
+            usedrop.style.background = "none";
+        }
+        return false;
+    });
+
+})
+
+
+// sidebar
+const element = document.getElementsByClassName("nav")[0];
+element.addEventListener('click', onTabClick, false);
+
+function onTabClick(event) {
+    let activeTabs = document.querySelectorAll('.active');
+
+    // deactivate existing active tab and panel
+    // for( let i = 0; i < activeTabs.length; i++) {
+    //   activeTabs[i].className = activeTabs[i].className.replace('active', '');
+    // }
+    activeTabs.forEach(function(tab) {
+        tab.className = tab.className.replace('active', '');
+    });
+
+    // activate new tab and panel
+    event.target.parentElement.className += ' active';
+    // event.target.firstElementChild.className += ' active';
+
+
+
+}
+// childPages
+
+// pages
+window.addEventListener('load', function() {
+        const page = document.getElementById("page");
+        page.addEventListener('click', function() {
+            var navpage = document.getElementsByClassName("nav1")[0];
+            var apages = document.getElementById("apages").lastElementChild.className = "lnr lnr-chevron-down";
+            var subpage = document.getElementById("subPages");
+            // if ((navpage.style.display == 'none')) {
+            console.log(apages);
+            subpage.style.display = 'block';
+            navpage.style.display = 'block';
+            subpage.style.background = '#252c35';
+
+
+            // }
+        });
+        document.getElementById("sidebar-nav").addEventListener('click', e => {
+            const page = document.getElementById("page");
+            var navpage = document.getElementsByClassName("nav1")[0];
+            if (!page.contains(e.target) && (!navpage.contains(e.target))) {
+                navpage.style.display = 'none';
+                page.style.height = "58" + "px";
+                var apages = document.getElementById("apages").lastElementChild.className = "lnr lnr-chevron-left";
+            }
+        });
+
+    })
+    // h

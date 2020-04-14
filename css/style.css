@@ -53,7 +53,7 @@ body {
     width: 58%;
     height: 100%;
     position: relative;
-    background-image: url(./img/leenov.jpg);
+    background-image: url(../img/leenov.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -78,7 +78,7 @@ body {
     display: block;
     width: 100%;
     height: 100%;
-    background-image: url(../img/lee.jpg);
+    background: rgba(99, 156, 185, 0.92);
     opacity: 0.8;
 }
 
@@ -304,7 +304,7 @@ input::placeholder {
 
 */ #sidebar-nav {
     padding-top: 80px;
-    z-index: auto;
+    /* z-index: -3; */
 }
 
 .nav>li {
@@ -372,8 +372,11 @@ a {
     text-decoration: none;
 }
 
-.nav li .active {
+.nav .active {
     background-color: #252c35;
+    border-left: 5px solid;
+    border-left-color: #00AAFF;
+    /* padding: 18px 25px; */
 }
 
 .nav>li>a {
@@ -384,11 +387,20 @@ a {
     width: -webkit-fill-available;
 }
 
-.nav li .active i {
+.nav .active i {
     color: #00AAFF;
-    margin-right: 10px;
+    /* margin-right: 10px; */
     font-size: 18px;
 }
+
+li:hover {
+    color: #00AAFF;
+}
+
+
+/* .nav li:active {
+    background-color: #252c35;
+} */
 
 .nav li i {
     color: #AEB7C2;
@@ -396,7 +408,7 @@ a {
     font-size: 18px;
 }
 
-.nav li .active span {
+.nav .active span {
     color: white;
 }
 
@@ -421,7 +433,7 @@ a {
     fill: #777777;
 }
 
-.chevron-left {
+#chevron-left {
     float: right;
     margin-right: 10px;
     font-size: 12px;
@@ -430,8 +442,28 @@ a {
 
 #subPages {
     display: none;
+    /* padding-top: 62px;
+    height: -webkit-fill-available; */
+    /* background-color: #252c35;
+    ; */
+}
+
+
+/* .nav .active .nav1 a {
     padding-top: 62px;
     height: -webkit-fill-available;
+    background-color: #252c35;
+} */
+
+
+/* .nav #subPages a {
+    padding-top: 62px;
+    height: -webkit-fill-available;
+    background-color: #252c35;
+} */
+
+.nav1 {
+    display: none;
 }
 
 .nav1 li {
@@ -468,11 +500,8 @@ a {
     font-size: 22px;
     fill: #777777;
 }
-.usedrop{
-    position: relative;
-}
-.drodown {
 
+.drodown {
     display: flex;
 }
 
@@ -518,45 +547,54 @@ ul li {
 }
 
 .user {
-    position: absolute;
-    top: 81px;
-    right: 10px;
+    float: right;
+    margin-top: 83px;
     width: 200px;
+    margin-right: 3px;
     display: none;
 }
 
-.user .dropdown-menu li a {
+.dropdown-menu li:hover {
+    background-color: #fafafa;
+}
+
+.user .dropdown-menu a li:hover {
+    color: #262626;
+}
+
+.user .dropdown-menu a li {
     color: #676a6d;
 }
 
-.user .dropdown-menu li a i {
+.user .dropdown-menu a li i {
     margin-right: 6px;
 }
 
 .user .dropdown-menu li {
-    padding: 10px 20px;
+    padding: 12px 20px;
 }
 
 .user .dropdown-menu {
     border-top: 2px solid #ACB0B5;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    border-color: #2433bb;
-    background-color: rgb(250, 250, 250);
+    border-color: #eaeaea;
+    background-color: #fff;
     border: 1px solid rgba(0, 0, 0, .15);
     border-radius: 4px;
+    z-index: 1;
+}
 
-}
-.user {
-    
-    z-index: 20;
-}
+
+/* .dropdown-menu {
+    border-top: 2px solid #ACB0B5;
+} */
 
 
 /* main */
 
 .main {
-    height: inherit;
-    z-index: 4;
+    height: auto;
+    /* z-index: -4; */
     margin-top: 82px;
     width: calc(100% - 260px);
     right: 0;
@@ -587,6 +625,7 @@ ul li {
     width: 100%;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     border-radius: 3px;
+    height: max-content;
 }
 
 .panel .panel-head {
@@ -604,7 +643,7 @@ ul li {
     padding-bottom: 15px;
     padding-left: 25px;
     padding-right: 25px;
-    height: 300px;
+    /* height: 300px; */
 }
 
 .row {
@@ -685,8 +724,11 @@ ul li {
     .row .col {
         width: 100%;
     }
-    .main-content {
+    /* .main-content {
         height: inherit;
+    } */
+    .main-content .panel {
+        height: max-content;
     }
 }
 
@@ -695,16 +737,18 @@ ul li {
     .navbar-form {
         display: none;
     }
+    .navbar-menu {
+        width: max-content;
+    }
 }
 
-@media screen and(max-width:568px) {
+
+/* @media screen and(max-width:568px) {
     .navbar-form {
         display: none;
     }
     .expand {
         display: none;
     }
-    .navbar-menu {
-        width: max-content;
-    }
-}
+  
+} */
