@@ -88,6 +88,12 @@ require_once("php/ss.php");
                                 </div>
                             </div>
                         </div>
+                        <div class="panel">
+                            <div class="calendar">
+                                <iframe src="https://calendar.google.com/calendar/embed?height=300&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FHo_Chi_Minh&amp;src=dHJhbnZhbm5iOTRAZ21haWwuY29t&amp;src=dmkudmlldG5hbWVzZSNob2xpZGF5QGdyb3VwLnYuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%2322AA99&amp;color=%231F753C"
+                                    style="border-width:0" width="100%" height="300" frameborder="0" scrolling="no"></iframe>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- end panl -->
