@@ -1,6 +1,38 @@
 <?php
-require_once("php/ss.php");
+session_start();
+require_once("php/ss-admin.php");
 include("./php/echoHTML.php");
+function hienthi()
+{
+  $dbcon = mysqli_connect("localhost","root","","test"); //connect
+  mysqli_set_charset($dbcon, 'utf8');
+  if(!$dbcon)
+  {
+      echo'
+      <script>
+          function abc(){
+              if(confirm("Lỗi dữ liệu") == true){
+                  window.location="../login.php";
+              }else{
+                  window.location="../login.php";
+              }
+          }
+          abc();
+      </script>
+      ';
+    
+  }
+  $output ="";
+  $query = "SELECT `userid`, `First_name`, `Last_name`, `Password`, `Email`, `User_level` FROM `users` WHERE 1";
+  $kq = mysqli_query($dbcon,$query); //truyen sql vao mysql
+  while($row = mysqli_fetch_array($kq) ) //ham tra ve tat ca ket qua
+  {
+      $output .= '<tr><td>' .$row[1]. '</td><td>' .$row[2]. '</td><td>' .$row[3]. '</td><td>' .$row[4]. '</td><td>' .$row[5]. '</td><td><a href="./php/delete-user.php?id='.$row[0].'">Xóa</a></td></tr>';
+  }
+  //dong kn
+  mysqli_close($dbcon);
+  return $output;
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +52,7 @@ include("./php/echoHTML.php");
     
     <script src="./js/jquery-3.4.1.js"></script>
     <script src="./js/navbar.js"></script>
+    <script src="./js/xuly.js"></script>
     
 </head>
 
@@ -49,7 +82,7 @@ include("./php/echoHTML.php");
                         </h3>
                     </div>
                     <div class="panel-body">
-                    <form class="frm" id = "frm-tcd">
+                    <form class="frm" id = "frm-newtk">
                         <div class="row">
                           <div class="col">
                             <div class="label">Họ</div>
@@ -70,23 +103,44 @@ include("./php/echoHTML.php");
                           <div class="col">
                             <div class="label">Quyền Truy cập</div>
                             <div class="value">
-                                <select name="kihoc" id="kihoc">
+                                <select name="level" id="level">
                                   <option value="Admin">Admin</option>
                                   <option value="NhanVien">Nhân Viên</option>						
                                 </select>
                             </div>
                         </div>			
                         <div class="btn-n">
-                            <button id = "tracuudiem" type="button" class="click">Thêm</button>
+                            <button id = "themtaokhoan" type="button" class="click">Thêm</button>
                         </div>
+                        
                     </form>
+                    
                     </div>
+                    <div class="thongbao"></div>
+                    <div class="bangdulieu">
+                    <table class="table-data" bgcolor="#FFFFFF">
+                      <tr id ="tb-khoa" class="row-first">
+                      
+                          <td width="300">Họ</td>
+                          <td width="150">Tên</td>
+                          <td width="300">Email</td>
+                          <td width="300">Password</td>
+                          <td width="300">Level</td>
+                          <td></td>
+                      </tr>
+                    <?php
+                    echo hienthi();
+                    ?>
+                    
+                </table>
                 </div>
                 <!-- end panl -->
             </div>
         </div>
     </div>
-    
+<script>
+
+</script>
 </body>
 
 </html>

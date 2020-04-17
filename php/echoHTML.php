@@ -1,5 +1,4 @@
 <?php
-session_start();
 //addNav 
 function addNav()
 {
@@ -48,7 +47,9 @@ function addNav()
                 <li class="drodown usedrop" id = "user_dowm">
                     <a href="#" >
                         <img src="./img/user.jpg" alt="Avatar" id="avatar">
-                        <span>Jully</span>
+                        <span>                     
+                        '.$_SESSION['username'].'
+                        </span>
                         <i class="icon-submenu lnr lnr-chevron-down" ></i>
 
                     </a>
@@ -76,10 +77,10 @@ function addSidebar()
                         </a>
                     </li>
                     <li id="page">
-                        <a href="">
+                        <a href="QLSanPham.php">
                             <i class="lnr lnr-file-empty"></i>
-                            <span>Pages</span>
-                            <i class="icon-submenu lnr lnr-chevron-left chevron-left"></i>
+                            <span>Quản Lý Sản Phẩm</span>
+                            <!--<i class="icon-submenu lnr lnr-chevron-left chevron-left"></i>
                             <div id="subPages">
                                 <ul class="nav1">
                                     <li>
@@ -92,7 +93,8 @@ function addSidebar()
                                         <a href="">Locksreen</a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div>  -->
+                            
 
                         </a>
                     </li>
@@ -104,7 +106,7 @@ function addSidebar()
                         </a>
                     </li>
                     <li>
-                        <a href="./QLTaiKhoan.php">
+                        <a href="QLTaiKhoan.php">
                             <i class="lnr lnr-user"></i>
                             <span>Quản Lý Tài Khoản (admin) </span>
                         </a>
@@ -119,6 +121,7 @@ function addSidebar()
     </div>
 </div>';
 }
+
 function addUser(){
     echo '<div class="user">
     <ul class="dropdown-menu">

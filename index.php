@@ -1,5 +1,7 @@
 <?php
+session_start();
 include("./php/echoHTML.php");
+require_once("php/ss.php");
 ?>
 
 <!DOCTYPE html>
