@@ -62,7 +62,7 @@ function hienthi()
         $kq = mysqli_query($dbcon,$query); //truyen sql vao mysql
         while($row = mysqli_fetch_array($kq) ) //ham tra ve tat ca ket qua
         {
-            $output .= '<tr><td>' .$row[0]. '</td><td>' .$row[1]. '</td><td>' .$row[4]. '</td><td>' .$row[5]. '</td><td>' .$row[2]. '</td><td>' .$row[3]. '</td><td><a href="./php/delete-sp.php?id='.$row[0].'">Xóa</a></td><td><a href="./php/sua-sp.php?id='.$row[0].'">Sửa</a></td></tr>';
+            $output .= '<tr><td>' .$row[0]. '</td><td>' .$row[1]. '</td><td>' .$row[4]. '</td><td>' .$row[5]. '</td><td>' .$row[2]. '</td><td>' .$row[3]. '</td><td><a class = "xoa" href="./php/delete-sp.php?id='.$row[0].'">Xóa</a></td><td><a  class = "sua" href="./php/sua-sp.php?id='.$row[0].'">Sửa</a></td></tr>';
         }
         //dong kn
         mysqli_close($dbcon);
@@ -118,7 +118,7 @@ function hienthi()
                         </h3>
                     </div>
                     <div class="panel-body">
-                    <form class="frm" id = "frm-newtk">
+                    <form class="frm" id = "frm-sp">
                         <div class="row">
                           <div class="col">
                             <div class="label">ID</div>
@@ -159,7 +159,7 @@ function hienthi()
                     </div>
                     <div class="thongbao"></div>
                     <div class="bangdulieu">
-                    <table class="table-data" bgcolor="#FFFFFF">
+                    <table class="table-data" id ="tb-sp" bgcolor="#FFFFFF">
                       <tr id ="tb-khoa" class="row-first">                     
                           <td width="100">ID</td>
                           <td width="300">Tên Sản Phẩm</td>
@@ -177,8 +177,57 @@ function hienthi()
                 </table>
                 </div>
                 <!-- end panl -->
+                <script>
+                $(document).ready(function () {
+                    $("#tb-sp .sua").click(function (e) { 
+                        e.preventDefault();
+                        var x =[];
+                        var i;
+                        for (i = 0; i < 6; i++) {
+                            x.push($(this).closest('tr').find('td').eq(i).html());
+                        }
+                        $('#formEdit').css('display','block');
+                        ab(x);
+                        
+                    });
+                   
+                });
+                </script>
+                
             </div>
         </div>
+    </div>
+    <div id="formEdit">
+    <form class="frm" id = "frm-edit"><div class=""><div class="">
+        <div class="idsp-en"></div>
+        <div class="idsp">ID</div><input type="text" name="id" class="idsp" value ="" size="12" maxlenght = "22" required></div></div><div class=""><div class="">Tên Sản Phẩm</div><div class="">
+        <input type="text" name="ten" class="ten" value ="" size="12" maxlenght = "22" required></div></div><div class=""><div class="">Xuất Xứ</div><div class="">
+            <input type="text" name="xs"  class="xs"  value ="" size="12" maxlenght = "22" required></div></div><div class=""><div class="">Giá (VNĐ)</div><div class="">
+                <input type="text" name="gia"  class="gia"  value ="" size="22"required></div></div>					<div class=""><div class="">Số Lượng</div><div class="">
+                    <input type="int" name="sl" class ="sl" value ="" size="3" required></div></div><div class=""><div class="">Nhà Cung Cấp</div>
+                    <div class=""><select name="idncc" class="idncc">'+'<?php echo idncc();?>'+'</select></div></div>	<div class="btn-n row bt_edit">
+                    <button id = "editSP" type="button" class="click">Sửa</button>
+                    <button id = "huyEdit" type="button" class="click">Hủy</button></div></form>
+                <script>
+                    function ab(x){
+                        $(".idsp-en").html("ID :"+x[0].toString());
+                        $(".idsp").val(x[0].toString());
+                        $(".ten").val(x[1].toString());
+                        $(".xs").val(x[5].toString());
+                        $(".gia").val(x[2].toString());
+                        $(".sl").val(x[3].toString());
+                        $(".idncc").val(x[4].toString());
+                    };
+                    
+                </script>
+                <script>
+                $(function () {
+                    $("#huyEdit").click(function (e) { 
+                        e.preventDefault();
+                        $('#formEdit').css('display','none');
+                    });
+                });
+                </script>
     </div>
 </body>
 

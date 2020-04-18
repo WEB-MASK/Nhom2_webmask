@@ -17,10 +17,27 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#themsp").click(function (e) { 
         e.preventDefault();
-        var data = $("#frm-newtk").serialize();
+        var data = $("#frm-sp").serialize();
         $.ajax({
             type: "POST",
             url: "./php/add-sp.php",
+            data: data,
+            success: function (data) {
+                $('.thongbao').html(data);
+            }
+        });
+    });
+});
+
+//edit san pham
+$(document).ready(function () {
+    $("#editSP").click(function (e) { 
+        e.preventDefault();
+        $('#formEdit').css('display','none');
+        var data = $("#frm-edit").serialize();
+        $.ajax({
+            type: "POST",
+            url: "./php/edit-sp.php",
             data: data,
             success: function (data) {
                 $('.thongbao').html(data);
