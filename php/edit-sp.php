@@ -31,10 +31,10 @@ else
     $kq = mysqli_query($dbcon,$query); //truyen sql vao mysql
     if($kq)
     {
-        echo "Update <br>Sản Phẩm : ".$id."<br> Thành Công";
+        echo "Update Sản Phẩm : ".$id." Thành Công";
     }
     else {
-        echo "Update <br>Sản Phẩm : ".$id."<br> That bai";
+        echo "Update Sản Phẩm : ".$id." That bai";
     }
 }
 //dong kn

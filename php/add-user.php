@@ -20,8 +20,7 @@ if(!$dbcon)
         }
         abc();
     </script>
-    ';
-    
+    '; 
 }
 else
 {

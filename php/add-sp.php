@@ -32,10 +32,10 @@ else
     $kq = mysqli_query($dbcon,$query); //truyen sql vao mysql
     if($kq)
     {
-        echo "Thêm <br>Sản Phẩm : ".$id."<br> Thành Công";
+        echo "Thêm Sản Phẩm : ".$id." Thành Công";
     }
     else {
-        echo "Thêm <br>Sản Phẩm : ".$id."<br> That bai";
+        echo "Thêm Sản Phẩm : ".$id." That bai";
     }
 }
 //dong kn

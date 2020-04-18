@@ -2,75 +2,8 @@
 session_start();
 require_once("php/ss.php");
 include("./php/echoHTML.php");
-function idncc(){
-    $dbcon = mysqli_connect("localhost","root","","test"); //connect
-    mysqli_set_charset($dbcon, 'utf8');
-    if(!$dbcon)
-    {
-        echo'
-        <script>
-            function abc(){
-                if(confirm("Lỗi dữ liệu") == true){
-                    window.location="../login.php";
-                }else{
-                    window.location="../login.php";
-                }
-            }
-            abc();
-        </script>
-        ';
-        
-    }
-    else
-    {
-        $output2 ="";
-        $query = "SELECT `idNCC`, `TenNCC` FROM `nhacungcap` WHERE 1";
-        $kq = mysqli_query($dbcon,$query); //truyen sql vao mysql
-        while($row = mysqli_fetch_array($kq) ) //ham tra ve tat ca ket qua
-        {
-            $output2 .= '<option value="' .$row[0]. '">' .$row[1]. '</option>';
-        }
-        //dong kn
-        mysqli_close($dbcon);
-        return $output2;
-    }  
-}
-function hienthi()
-    {
-    $dbcon = mysqli_connect("localhost","root","","test"); //connect
-    mysqli_set_charset($dbcon, 'utf8');
-    if(!$dbcon)
-    {
-        echo'
-        <script>
-            function abc(){
-                if(confirm("Lỗi dữ liệu") == true){
-                    window.location="../login.php";
-                }else{
-                    window.location="../login.php";
-                }
-            }
-            abc();
-        </script>
-        ';
-
-    }
-    else
-    {
-        $output ="";
-        $query = "SELECT `IDKhauTrang`, `TenKhauTrang`, `idNCC`, `NUOCSX`, `Gia`, `SoLuong` FROM `khautrang` WHERE 1";
-        $kq = mysqli_query($dbcon,$query); //truyen sql vao mysql
-        while($row = mysqli_fetch_array($kq) ) //ham tra ve tat ca ket qua
-        {
-            $output .= '<tr><td>' .$row[0]. '</td><td>' .$row[1]. '</td><td>' .$row[4]. '</td><td>' .$row[5]. '</td><td>' .$row[2]. '</td><td>' .$row[3]. '</td><td><a class = "xoa" href="./php/delete-sp.php?id='.$row[0].'">Xóa</a></td><td><a  class = "sua" href="./php/sua-sp.php?id='.$row[0].'">Sửa</a></td></tr>';
-        }
-        //dong kn
-        mysqli_close($dbcon);
-        return $output;
-    }
-    }
+require_once("./php/header_sp.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -159,17 +92,18 @@ function hienthi()
                     </div>
                     <div class="thongbao"></div>
                     <div class="bangdulieu">
+                    <div class="">
+                        <div class="">Nhà Cung Cấp</div>
+                        <div class="">
+                            <select name="show-ncc" id="show-ncc">
+                            <option value="">Hiển Thị Tất Cả</option>
+                                <?php
+                                echo showncc();
+                                ?>
+                            </select>
+                        </div>
+                    </div>
                     <table class="table-data" id ="tb-sp" bgcolor="#FFFFFF">
-                      <tr id ="tb-khoa" class="row-first">                     
-                          <td width="100">ID</td>
-                          <td width="300">Tên Sản Phẩm</td>
-                          <td width="150">Giá</td>
-                          <td width="100">Số Lượng</td>
-                          <td width="200">Nhà Cung Cấp</td>
-                          <td width="100">Nước Sản Xuất</td>
-                          <td></td>
-                          <td></td>
-                      </tr>
                     <?php
                     echo hienthi();
                     ?>
@@ -177,22 +111,6 @@ function hienthi()
                 </table>
                 </div>
                 <!-- end panl -->
-                <script>
-                $(document).ready(function () {
-                    $("#tb-sp .sua").click(function (e) { 
-                        e.preventDefault();
-                        var x =[];
-                        var i;
-                        for (i = 0; i < 6; i++) {
-                            x.push($(this).closest('tr').find('td').eq(i).html());
-                        }
-                        $('#formEdit').css('display','block');
-                        ab(x);
-                        
-                    });
-                   
-                });
-                </script>
                 
             </div>
         </div>
@@ -205,29 +123,10 @@ function hienthi()
             <input type="text" name="xs"  class="xs"  value ="" size="12" maxlenght = "22" required></div></div><div class=""><div class="">Giá (VNĐ)</div><div class="">
                 <input type="text" name="gia"  class="gia"  value ="" size="22"required></div></div>					<div class=""><div class="">Số Lượng</div><div class="">
                     <input type="int" name="sl" class ="sl" value ="" size="3" required></div></div><div class=""><div class="">Nhà Cung Cấp</div>
-                    <div class=""><select name="idncc" class="idncc">'+'<?php echo idncc();?>'+'</select></div></div>	<div class="btn-n row bt_edit">
+                    <div class=""><select name="idncc" class="idncc"><?php echo idncc();?></select></div></div>	<div class="btn-n row bt_edit">
                     <button id = "editSP" type="button" class="click">Sửa</button>
                     <button id = "huyEdit" type="button" class="click">Hủy</button></div></form>
-                <script>
-                    function ab(x){
-                        $(".idsp-en").html("ID :"+x[0].toString());
-                        $(".idsp").val(x[0].toString());
-                        $(".ten").val(x[1].toString());
-                        $(".xs").val(x[5].toString());
-                        $(".gia").val(x[2].toString());
-                        $(".sl").val(x[3].toString());
-                        $(".idncc").val(x[4].toString());
-                    };
-                    
-                </script>
-                <script>
-                $(function () {
-                    $("#huyEdit").click(function (e) { 
-                        e.preventDefault();
-                        $('#formEdit').css('display','none');
-                    });
-                });
-                </script>
+                
     </div>
 </body>
 

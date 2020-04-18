@@ -99,16 +99,17 @@ function addSidebar()
                         </a>
                     </li>
 
-                    <li>
-                        <a href="">
-                            <i class="lnr lnr-cog"></i>
-                            <span>Panels</span>
-                        </a>
-                    </li>
+                    
                     <li>
                         <a href="QLTaiKhoan.php">
                             <i class="lnr lnr-user"></i>
                             <span>Quản Lý Tài Khoản (admin) </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="lnr lnr-cog"></i>
+                            <span>Panels</span>
                         </a>
                     </li>
                     <li>
@@ -144,7 +145,7 @@ function addUser(){
             </a>
         </li>
         <li>
-            <a href="">
+            <a href="./login.php">
                 <i class="lnr lnr-exit"></i>
                 <span>Logout</span>
             </a>
