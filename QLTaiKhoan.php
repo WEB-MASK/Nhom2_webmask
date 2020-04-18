@@ -4,8 +4,7 @@ require_once("php/ss-admin.php");
 include("./php/echoHTML.php");
 function hienthi()
 {
-  $dbcon = mysqli_connect("localhost","root","","test"); //connect
-  mysqli_set_charset($dbcon, 'utf8');
+    include("./php/conn.php");
   if(!$dbcon)
   {
       echo'
@@ -27,7 +26,7 @@ function hienthi()
   $kq = mysqli_query($dbcon,$query); //truyen sql vao mysql
   while($row = mysqli_fetch_array($kq) ) //ham tra ve tat ca ket qua
   {
-      $output .= '<tr><td>' .$row[1]. '</td><td>' .$row[2]. '</td><td>' .$row[3]. '</td><td>' .$row[4]. '</td><td>' .$row[5]. '</td><td><a href="./php/delete-user.php?id='.$row[0].'">Xóa</a></td></tr>';
+      $output .= '<tr><td>' .$row[1]. '</td><td>' .$row[2]. '</td><td>' .$row[4]. '</td><td>' .$row[3]. '</td><td>' .$row[5]. '</td><td><a href="./php/delete-user.php?id='.$row[0].'">Xóa</a></td></tr>';
   }
   //dong kn
   mysqli_close($dbcon);

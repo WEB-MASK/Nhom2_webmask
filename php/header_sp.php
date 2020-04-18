@@ -1,7 +1,6 @@
 <?php
 function idncc(){
-    $dbcon = mysqli_connect("localhost","root","","test"); //connect
-    mysqli_set_charset($dbcon, 'utf8');
+    include("./php/conn.php");
     if(!$dbcon)
     {
         echo'
@@ -34,8 +33,7 @@ function idncc(){
 }
 function hienthi()
     {
-    $dbcon = mysqli_connect("localhost","root","","test"); //connect
-    mysqli_set_charset($dbcon, 'utf8');
+    include("./php/conn.php");
     if(!$dbcon)
     {
         echo'
@@ -77,8 +75,7 @@ function hienthi()
 }
 
 function showncc(){
-    $dbcon = mysqli_connect("localhost","root","","test"); //connect
-    mysqli_set_charset($dbcon, 'utf8');
+    include("./php/conn.php");  
     if(!$dbcon)
     {
         echo'

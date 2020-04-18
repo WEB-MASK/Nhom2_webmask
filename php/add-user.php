@@ -4,9 +4,7 @@ $ten = $_POST['ten'];
 $user = $_POST['user'];
 $pass = $_POST['pass'];
 $level = $_POST['level'];
-
-$dbcon = mysqli_connect("localhost","root","","test"); //connect
-mysqli_set_charset($dbcon, 'utf8');
+include("./conn.php");
 if(!$dbcon)
 {
     echo'

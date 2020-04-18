@@ -5,10 +5,7 @@ $gia = $_POST['gia'];
 $sl = $_POST['sl'];
 $idncc = $_POST['idncc'];
 $xs = $_POST['xs'];
-
-
-$dbcon = mysqli_connect("localhost","root","","test"); //connect
-mysqli_set_charset($dbcon, 'utf8');
+include("./conn.php");
 if(!$dbcon)
 {
     echo'

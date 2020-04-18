@@ -2,5 +2,5 @@
 
 if(!isset($_SESSION['level']))
 {  
-  header('location:login.php');
+  header('location:./login.php');
 }

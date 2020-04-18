@@ -1,9 +1,7 @@
 <?php
 $user = $_POST['user'];
 $pass = $_POST['pass'];
-
-$dbcon = mysqli_connect("localhost","root","","test"); //connect
-mysqli_set_charset($dbcon, 'utf8');
+include("./conn.php");
 if(!$dbcon)
 {
     echo'

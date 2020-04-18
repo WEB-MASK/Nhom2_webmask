@@ -20,7 +20,7 @@ if(!$dbcon)
 }
 else
 {
-    $query = "DELETE FROM `khautrang` WHERE `IDKhauTrang` = '$id'";
+    $query = "DELETE FROM `users` WHERE `userid` = '$id'";
     $kq = mysqli_query($dbcon,$query); //truyen sql vao mysql
     if($kq)
     {
@@ -29,7 +29,7 @@ else
     else {
         echo "Thêm <br>Sản Phẩm : ".$id."<br> That bai";
     }
-    header('location:../QLSanPham.php');
+    header('location:../QLTaiKhoan.php');
 }
 //dong kn
 mysqli_close($dbcon);
