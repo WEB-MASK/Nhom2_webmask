@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 13, 2020 lúc 05:38 PM
+-- Thời gian đã tạo: Th4 18, 2020 lúc 04:44 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.3
 
@@ -101,7 +101,7 @@ INSERT INTO `khachhang` (`KHID`, `HoTen`, `DiaChi`, `SoDT`, `NgaySinh`) VALUES
 CREATE TABLE `khautrang` (
   `IDKhauTrang` varchar(10) NOT NULL,
   `TenKhauTrang` varchar(100) NOT NULL DEFAULT 'Chưa có tên',
-  `HieuKhauTrangID` varchar(10) NOT NULL,
+  `idNCC` varchar(10) NOT NULL,
   `NUOCSX` varchar(255) DEFAULT NULL,
   `Gia` float NOT NULL DEFAULT 0,
   `SoLuong` int(11) NOT NULL DEFAULT 0
@@ -111,7 +111,7 @@ CREATE TABLE `khautrang` (
 -- Đang đổ dữ liệu cho bảng `khautrang`
 --
 
-INSERT INTO `khautrang` (`IDKhauTrang`, `TenKhauTrang`, `HieuKhauTrangID`, `NUOCSX`, `Gia`, `SoLuong`) VALUES
+INSERT INTO `khautrang` (`IDKhauTrang`, `TenKhauTrang`, `idNCC`, `NUOCSX`, `Gia`, `SoLuong`) VALUES
 ('KT1', 'N95', 'CM', 'Anh Quốc', 33000, 1500),
 ('KT2', 'Vogmass N99', 'VOGM', 'Mỹ', 200000, 2000),
 ('KT3', 'Vogmass N99 CV', 'VOGM', 'Mỹ', 300000, 3296),
@@ -221,7 +221,7 @@ ALTER TABLE `khachhang`
 --
 ALTER TABLE `khautrang`
   ADD PRIMARY KEY (`IDKhauTrang`),
-  ADD KEY `HieuKhauTrangID` (`HieuKhauTrangID`);
+  ADD KEY `HieuKhauTrangID` (`idNCC`);
 
 --
 -- Chỉ mục cho bảng `nhacungcap`
@@ -273,7 +273,7 @@ ALTER TABLE `nhanvien`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -297,7 +297,7 @@ ALTER TABLE `hoadon`
 -- Các ràng buộc cho bảng `khautrang`
 --
 ALTER TABLE `khautrang`
-  ADD CONSTRAINT `khautrang_ibfk_1` FOREIGN KEY (`HieuKhauTrangID`) REFERENCES `nhacungcap` (`idNCC`);
+  ADD CONSTRAINT `khautrang_ibfk_1` FOREIGN KEY (`idNCC`) REFERENCES `nhacungcap` (`idNCC`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
