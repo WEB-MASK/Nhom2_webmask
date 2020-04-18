@@ -1,7 +1,8 @@
 <?php
+include("./conn.php");
 $user = $_POST['user'];
 $pass = $_POST['pass'];
-include("./conn.php");
+
 if(!$dbcon)
 {
     echo'

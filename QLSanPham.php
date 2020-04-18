@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("php/ss.php");
+require_once("php/ss-admin.php");
 include("./php/echoHTML.php");
 require_once("./php/header_sp.php");
 ?>
