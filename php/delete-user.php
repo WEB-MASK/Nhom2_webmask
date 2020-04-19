@@ -22,13 +22,7 @@ else
 {
     $query = "DELETE FROM `users` WHERE `userid` = '$id'";
     $kq = mysqli_query($dbcon,$query); //truyen sql vao mysql
-    if($kq)
-    {
-        echo "Thành Công";
-    }
-    else {
-        echo "That bai";
-    }
+    $kq;
     header('location:./../QLTaiKhoan.php');
 }
 //dong kn
