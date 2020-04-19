@@ -1,32 +1,53 @@
 //add user
 
 $(document).ready(function () {
-    $("#themtaokhoan").click(function () { 
-      var data = $("#frm-newtk").serialize();
-          $.ajax({
-              type: "POST",
-              url: "./php/add-user.php",
-              data: data,
-              success: function (data) {
-                  $('.thongbao').html(data);
-              }
-          });
+    $("#themtaokhoan").click(function () {
+        $a1 = $("input[name='ho']").val();
+        $a2 = $("input[name='ten']").val();
+        $a3 = $("input[name='user']").val();
+        $a4 = $("input[name='pass']").val();
+        if ($a1 =="" || $a2 =="" || $a3 =="" || $a4 =="") {
+            alert("Không được bỏ trống!!!!");
+        } else {
+            var data = $("#frm-newtk").serialize();
+            $.ajax({
+                type: "POST",
+                url: "./php/add-user.php",
+                data: data,
+                success: function (data) {
+                    $('.thongbao').html(data);
+                    location.reload();
+                }
+            });
+        }
+
   });
 });
 //add sản phẩm
 $(document).ready(function () {
     $("#themsp").click(function (e) { 
         e.preventDefault();
-        var data = $("#frm-sp").serialize();
-        $.ajax({
-            type: "POST",
-            url: "./php/add-sp.php",
-            data: data,
-            success: function (data) {
-                alert(data);
-                location.reload();
-            }
-        });
+        $a1 = $("input[name='id']").val();
+        $a2 = $("input[name='ten']").val();
+        $a3 = $("input[name='xs']").val();
+        $a4 = $("input[name='gia']").val();
+        $a5 = $("input[name='sl']").val();
+        if ($a1 =="" || $a2 =="" || $a3 =="" || $a4 =="" || $a5 =="") {
+            alert("Không được bỏ trống!!!!");
+        } 
+        else {
+            var data = $("#frm-sp").serialize();
+            $.ajax({
+                type: "POST",
+                url: "./php/add-sp.php",
+                data: data,
+                success: function (data) {
+                    alert(data);
+                    location.reload();
+                }
+            });
+        }
+        
     });
 });
 

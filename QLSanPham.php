@@ -54,24 +54,24 @@ require_once("./php/header_sp.php");
                     <form class="frm" id = "frm-sp">
                         <div class="row">
                           <div class="col">
-                            <div class="label">ID</div>
-                            <div class="value"><input type="text" name="id"  size="15" maxlenght = "22" required></div>
+                            <div class="label">ID Sản Phẩm</div>
+                            <div class="value"><input type="text" name="id"  size="5" maxlenght = "10" required></div>
                           </div>
                           <div class="col">
                             <div class="label">Tên Sản Phẩm</div>
-                            <div class="value"><input type="text" name="ten"  size="12" maxlenght = "22" required></div>
+                            <div class="value"><input type="text" name="ten"  size="15" maxlenght = "100" required></div>
                           </div>
                           <div class="col">
                             <div class="label">Xuất Xứ</div>
-                            <div class="value"><input type="text" name="xs"  size="12" maxlenght = "22" required></div>
+                            <div class="value"><input type="text" name="xs"  size="10" maxlenght = "100" required></div>
                           </div>
                           <div class="col">
                             <div class="label">Giá (VNĐ)</div>
-                            <div class="value"><input type="text" name="gia" size="22"required></div>
+                            <div class="value"><input type="text" name="gia" size="10"required></div>
                           </div>					
                           <div class="col">
                             <div class="label">Số Lượng</div>
-                            <div class="value"><input type="int" name="sl" size="3" required></div>
+                            <div class="value"><input type="int" name="sl" size="10" required></div>
                           </div>
                           <div class="col">
                             <div class="label">Nhà Cung Cấp</div>

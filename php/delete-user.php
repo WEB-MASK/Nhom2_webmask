@@ -24,12 +24,12 @@ else
     $kq = mysqli_query($dbcon,$query); //truyen sql vao mysql
     if($kq)
     {
-        echo "Thêm <br>Sản Phẩm : ".$id."<br> Thành Công";
+        echo "Thành Công";
     }
     else {
-        echo "Thêm <br>Sản Phẩm : ".$id."<br> That bai";
+        echo "That bai";
     }
-    header('location:../QLTaiKhoan.php');
+    header('location:./../QLTaiKhoan.php');
 }
 //dong kn
 mysqli_close($dbcon);
