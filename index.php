@@ -1,3 +1,4 @@
+<?php $page='index'; ?>
 <?php
 include("./php/echoHTML.php");
 ?>

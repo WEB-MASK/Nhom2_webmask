@@ -740,15 +740,19 @@ ul li {
     .navbar-menu {
         width: max-content;
     }
+    .drodown {
+        position: absolute
+    }
+    .navbar-form {
+        display: block;
+    }
 }
 
-
-/* @media screen and(max-width:568px) {
+@media (max-width:568px) {
     .navbar-form {
         display: none;
     }
     .expand {
         display: none;
     }
-  
-} */
+}

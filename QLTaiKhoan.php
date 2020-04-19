@@ -1,3 +1,4 @@
+<?php $page='qltk';?>
 <?php
 require_once("php/ss.php");
 include("./php/echoHTML.php");
