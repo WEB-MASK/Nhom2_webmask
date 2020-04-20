@@ -1,4 +1,4 @@
-<?php $page='qltk';?>
+
 <?php
 session_start();
 require_once("php/ss-admin.php");

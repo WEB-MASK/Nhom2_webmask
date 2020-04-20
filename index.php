@@ -1,4 +1,4 @@
-<?php $page='index'; ?>
+
 <?php
 session_start();
 include("./php/echoHTML.php");

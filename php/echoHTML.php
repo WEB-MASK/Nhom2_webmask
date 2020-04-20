@@ -70,7 +70,7 @@ function addSidebar()
         <div class="sidebar-scroll">
             <nav>
                 <ul class="nav">
-                    <li >
+                    <li class="<?php if($page=='index'){echo 'active';} ?>">
                         <a href="index.php" >
                             <i class="lnr lnr-home"></i>
                             <span>Dashboard</span>
@@ -100,7 +100,7 @@ function addSidebar()
                     </li>
 
                     
-                    <li>
+                    <li class="<?php if($page=='qltk'){echo 'active';} ?>">
                         <a href="QLTaiKhoan.php">
                             <i class="lnr lnr-user"></i>
                             <span>Quản Lý Tài Khoản (admin) </span>
