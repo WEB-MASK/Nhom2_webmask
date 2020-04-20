@@ -64,7 +64,7 @@ function hienthi()
     <!-- end nav -->
     <!-- sidebar -->
     <?php
-    addSidebar();
+    addSidebar("qltk");
     ?>
     <!--End sidebar -->
     <!-- user -->

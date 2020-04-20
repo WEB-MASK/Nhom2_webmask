@@ -32,7 +32,7 @@ require_once("php/ss.php");
     <!-- end nav -->
     <!-- sidebar -->
     <?php
-    addSidebar();
+    addSidebar("");
     ?>
     <!--End sidebar -->
     <!-- user -->

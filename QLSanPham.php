@@ -33,7 +33,7 @@ require_once("./php/header_sp.php");
     <!-- end nav -->
     <!-- sidebar -->
     <?php
-    addSidebar();
+    addSidebar("qlsp");
     ?>
     <!--End sidebar -->
     <!-- user -->

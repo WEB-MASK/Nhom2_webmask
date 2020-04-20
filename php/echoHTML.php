@@ -63,21 +63,35 @@ function addNav()
 </nav>';
 }
 // addSidebar
-function addSidebar()
+function addSidebar($active)
 {
+    $qltk ="";
+    $qlsp ="";
+    $index ="";
+    if($active == "qltk")
+    {
+        $qltk .= "active";
+    }
+    else if ($active == "qlsp") {
+        $qlsp .= "active";
+    }
+    else
+    {
+        $index .= "active";
+    }
     echo '<div id="sidebar-nav" class="sidebar">
     <div class="slimScrolldiv">
         <div class="sidebar-scroll">
             <nav>
                 <ul class="nav">
-                    <li class="<?php if($page=="index"){echo "active";} ?>">
-                        <a href="index.php" >
+                    <li>
+                        <a href="index.php"  class="'.$index.'">
                             <i class="lnr lnr-home"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li id="page">
-                        <a href="QLSanPham.php">
+                        <a href="QLSanPham.php"  class="'.$qlsp.'">
                             <i class="lnr lnr-file-empty"></i>
                             <span>Quản Lý Sản Phẩm</span>
                             <!--<i class="icon-submenu lnr lnr-chevron-left chevron-left"></i>
@@ -100,22 +114,21 @@ function addSidebar()
                     </li>
 
                     
-                    <li class="<?php if($page=="qltk"){echo "active";} ?>">
-                        <a href="QLTaiKhoan.php">
+                    <li>
+                        <a href="QLTaiKhoan.php"  class="'.$qltk.'">
                             <i class="lnr lnr-user"></i>
                             <span>Quản Lý Tài Khoản (admin) </span>
                         </a>
                     </li>
                    
-                    <li>
-                        <a href="">
-                            <i class="lnr lnr-cog"></i>
-                            <span>Panels</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=""></a>
-                    </li>
+                    
+                    <!-- <li>
+                    <a href="">
+                        <i class="lnr lnr-cog"></i>
+                        <span>Panels</span>
+                    </a>
+                </li> -->
+                    
                 </ul>
 
             </nav>
