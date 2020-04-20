@@ -35,7 +35,7 @@ else
     }
     else
     {
-        header('location:../login.php');
+        header('location:../login.php?thongbao=loi');
     }
 
     //dong kn

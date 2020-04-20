@@ -15,6 +15,13 @@ session_destroy();
 </head>
 
 <body>
+<?php
+if(isset($_GET["thongbao"]))
+{
+echo '<script> alert("Sai tên đăng nhập hoặc mật khẩu");</script>';
+
+}
+?>
     <div class="wrapper">
         <div class="vertiacl-middel">
             <div class="auth-box">
