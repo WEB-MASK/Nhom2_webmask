@@ -6,6 +6,7 @@
 }
 /* form */
 .frm{
+  min-width: 800px;
     display: block;
     border: #56a4fe 3px solid;
     padding: 10px 5px;
@@ -89,4 +90,26 @@ table.list, table.list td{
   display: block;
   float: left;
   width: 100%;
+}
+#thongbao{
+  width: 100%;
+  clear: both;
+  background-color: #56a4fe;
+}
+#formEdit{
+  position: fixed;
+  top: 100px;
+  left: 700px;
+  z-index: 999;
+  background-color: #56a4fe;
+  display: none;
+}
+.bt_edit{
+  padding: 10px;
+}
+.bt_edit button{
+  margin: 10px;
+}
+.idsp{
+  display: none;
 }

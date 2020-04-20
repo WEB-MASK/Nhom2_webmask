@@ -1,9 +1,8 @@
 <?php
+include("./conn.php");
 $user = $_POST['user'];
 $pass = $_POST['pass'];
 
-$dbcon = mysqli_connect("localhost","root","","test"); //connect
-mysqli_set_charset($dbcon, 'utf8');
 if(!$dbcon)
 {
     echo'
@@ -22,7 +21,7 @@ if(!$dbcon)
 }
 else
 {
-    $query = "SELECT * from Users where Email = '$user' and Password ='$pass' ";
+    $query = "SELECT * from users where email = '$user' and Password ='$pass' ";
     $kq = mysqli_query($dbcon,$query); //truyen sql vao mysql
     if(mysqli_num_rows($kq) > 0)  //kiem tra dong in ra > 0
     {

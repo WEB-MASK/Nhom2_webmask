@@ -1,5 +1,4 @@
 <?php
-session_start();
 //addNav 
 function addNav()
 {
@@ -48,7 +47,9 @@ function addNav()
                 <li class="drodown usedrop" id = "user_dowm">
                     <a href="#" >
                         <img src="./img/user.jpg" alt="Avatar" id="avatar">
-                        <span>Jully</span>
+                        <span>                     
+                        '.$_SESSION['username'].'
+                        </span>
                         <i class="icon-submenu lnr lnr-chevron-down" ></i>
 
                     </a>
@@ -69,17 +70,17 @@ function addSidebar()
         <div class="sidebar-scroll">
             <nav>
                 <ul class="nav">
-                    <li class="<?php if($page=='index'){echo 'active';} ?>">
+                    <li >
                         <a href="index.php" >
                             <i class="lnr lnr-home"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li id="page">
-                        <a href="">
+                        <a href="QLSanPham.php">
                             <i class="lnr lnr-file-empty"></i>
-                            <span>Pages</span>
-                            <i class="icon-submenu lnr lnr-chevron-left chevron-left"></i>
+                            <span>Quản Lý Sản Phẩm</span>
+                            <!--<i class="icon-submenu lnr lnr-chevron-left chevron-left"></i>
                             <div id="subPages">
                                 <ul class="nav1">
                                     <li>
@@ -92,21 +93,27 @@ function addSidebar()
                                         <a href="">Locksreen</a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div>  -->
+                            
 
                         </a>
                     </li>
 
+                    
+                    <li>
+                        <a href="QLTaiKhoan.php">
+                            <i class="lnr lnr-user"></i>
+                            <span>Quản Lý Tài Khoản (admin) </span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="./QLTaiKhoan.php">
+                            <i class="lnr lnr-user"></i>
+                            <span>Quản Lý Tài Khoản (admin) </span>
                     <li>
                         <a href="">
                             <i class="lnr lnr-cog"></i>
                             <span>Panels</span>
-                        </a>
-                    </li>
-                    <li class="<?php if($page=='qltk'){echo 'active';} ?>">
-                        <a href="./QLTaiKhoan.php">
-                            <i class="lnr lnr-user"></i>
-                            <span>Quản Lý Tài Khoản (admin) </span>
                         </a>
                     </li>
                     <li>
@@ -119,6 +126,7 @@ function addSidebar()
     </div>
 </div>';
 }
+
 function addUser(){
     echo '<div class="user">
     <ul class="dropdown-menu">
@@ -141,7 +149,7 @@ function addUser(){
             </a>
         </li>
         <li>
-            <a href="">
+            <a href="./login.php">
                 <i class="lnr lnr-exit"></i>
                 <span>Logout</span>
             </a>
