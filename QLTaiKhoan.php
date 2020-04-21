@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 require_once("php/ss-admin.php");
@@ -41,7 +40,7 @@ function hienthi()
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index</title>
+    <title>Quản Lý Tài Khoản</title>
     <link rel="stylesheet" href="./css/bt.css">
     <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./css/fontawesome.min.css">
@@ -95,7 +94,7 @@ function hienthi()
                           <div class="col">
                             <div class="label">Email/Tên tài khoản</div>
                             <div class="value"><input type="text" name="user" size="20"required></div>
-                          </div>					
+                          </div>					l
                           <div class="col">
                             <div class="label">Mật Khẩu</div>
                             <div class="value"><input type="text" name="pass" size="20" required></div>
