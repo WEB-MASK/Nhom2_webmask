@@ -92,7 +92,7 @@ function addSidebar($active)
                     </li>
                     <li id="page">
                         <a href="QLSanPham.php"  class="'.$qlsp.'">
-                            <i class="lnr lnr-file-empty"></i>
+                        <i class="lnr lnr-book"></i>
                             <span>Quản Lý Sản Phẩm</span>
                             <!--<i class="icon-submenu lnr lnr-chevron-left chevron-left"></i>
                             <div id="subPages">
