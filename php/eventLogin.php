@@ -29,6 +29,7 @@ else
         {
             session_start();
             $_SESSION['level'] = $row['User_level'];
+            $_SESSION['log_users']=$row['User_level'];
             $_SESSION['username'] = $row['Last_name'];
             header("location:../index.php");
         }

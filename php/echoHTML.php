@@ -48,7 +48,7 @@ function addNav()
                     <a href="#" >
                         <img src="./img/user.jpg" alt="Avatar" id="avatar">
                         <span>                     
-                        '.$_SESSION['username'].'
+                        '.$_SESSION['log_users'].'
                         </span>
                         <i class="icon-submenu lnr lnr-chevron-down" ></i>
 
@@ -112,7 +112,32 @@ function addSidebar($active)
 
                         </a>
                     </li>
-
+                    <li>
+                            <a href="Home/exemask.php" class="mau"> 
+                            <i class="lnr lnr-map"></i>
+                                <span>Exec Sản Phẩm</span>
+                            </a>
+                        </li>
+                    <li>
+                            <a href="Home/hoadon.php" class="mau">
+                            <i class="lnr lnr-calendar-full"></i>
+                                <span>Thanh Toán</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Home/thongke.php" class="mau">
+                            <i class="lnr lnr-calendar-full"></i>
+                                <span>Thống Kê</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Home/lichsu.php" class="mau">
+                            <i class="lnr lnr-calendar-full"></i>
+                                <span>Lịch Sử giao dịch</span>
+                            </a>
+                        </li>
+                        
+                        
                     
                     <li>
                         <a href="QLTaiKhoan.php"  class="'.$qltk.'">
@@ -122,12 +147,7 @@ function addSidebar($active)
                     </li>
                    
                     
-                    <!-- <li>
-                    <a href="">
-                        <i class="lnr lnr-cog"></i>
-                        <span>Panels</span>
-                    </a>
-                </li> -->
+                    
                     
                 </ul>
 
