@@ -64,27 +64,20 @@ include("sidebar.php");
                         
 
                 <div class="row">
-                    
-                    <div class="col-md-3"  style="background: aliceblue;">
+                    <form id = "frmhd" class="col-md-3"  style="background: aliceblue;" action="" method="post">
                         <h5 style="font-size: 18px;font-weight: 300;padding-top: 20px;padding-bottom: 20px;">
-                                
-                            Customer Information
+                            Thông tin Hóa Đơn
                         </h5> 
-                        <span class="badge badge-default" style="font-size: 14px;font-weight: 400; ">Họ Tên</span>
-                        <input class="form-control mr-sm-2" type="text" style="margin-bottom:10px" placeholder="Name">
-                        <span class="badge badge-default" style="font-size: 14px;font-weight: 400;">Địa Chỉ</span>
-                        <input class="form-control mr-sm-2" type="text"  style="margin-bottom:10px" placeholder="Adress">
-                        <span class="badge badge-default" style="font-size: 14px;font-weight: 400;">Điện thoại</span>
-                        <input class="form-control mr-sm-2" type="text"  style="margin-bottom:10px" placeholder="Phone">
-                        <span class="badge badge-default" style="font-size: 14px;font-weight: 400;">Ngày Sinh</span>
-
-                        <div class="input-group">
-                            <input type="date" placeholder="Phone">   
-                        </div>
-                    </div>
+                        <span class="badge badge-default" style="font-size: 14px;font-weight: 400; ">ID Khách Hàng</span>
+                        <input class="form-control mr-sm-2" name = "idkh" id =  "idkh" type="text" style="margin-bottom:10px" placeholder="ID">
+                        <span class="badge badge-default" style="font-size: 14px;font-weight: 400;">ID Nhân Viên</span>
+                        <input class="form-control mr-sm-2"name = "idnv" id = "idnv" type="text"  style="margin-bottom:10px" placeholder="ID">
+                        <span class="badge badge-default" style="font-size: 14px;font-weight: 400;">ID Hóa Đơn</span>
+                        <input class="form-control mr-sm-2" name = "idhd" id = "idhd"type="text"  style="margin-bottom:10px" placeholder="ID">
+                    </form>
 
                     <div class="col-md-9">
-                    <h4 class="heading" style="padding-bottom: 10px;margin-bottom: 20px;border-bottom: 1px solid #eaeaea;  padding: 20px 25px;  font-size: 18px;font-weight: 400;color: #676a6d;">Pay The Bill</h4>
+                    <h4 class="heading" style="padding-bottom: 10px;margin-bottom: 20px;border-bottom: 1px solid #eaeaea;  padding: 20px 25px;  font-size: 18px;font-weight: 400;color: #676a6d;">Chi Tiết Hóa Đơn</h4>
                     <div class="row" style="margin-right:15px; margin-left:15px">
                         <div class="col-md-6">
                         <div class="form-group row" style="margin-top:20px" >
@@ -92,7 +85,6 @@ include("sidebar.php");
                             <div class="hkt" >
                                 <select id="HieuKhauTrang"  class="form-control" name="HieuKhauTrang"  >
                                     <option value="" > Thương Hiệu</option>
-                                    
                                     <?php 
                                         require('funconnect.php');
                                         global $conn;
@@ -168,15 +160,11 @@ include("sidebar.php");
                                     </th>
                                 </tr>
                             </thead>
-
                             <tbody id="Gia">
-                            </tbody>
-                                
-                            
-                        </table> 
-                        
+                            </tbody>  
+                    </table> 
+                    <!-- end /table -->
                         <button id = "bt_thanhtoan"type="button" class="btn btn-primary"style="margin-left:85%">Thanh Toán</button>
-                    
                     </div>
                     
                         

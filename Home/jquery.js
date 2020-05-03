@@ -51,18 +51,50 @@ $(document).ready(function() {
     });
 
     //click thanh toán
-    $("#bt_thanhtoan").click(function(e) {
-        var table = document.getElementById("tb_hoadon");
-        var sum = 0;
-        for (var i = 1; i < table.rows.length; i++) {
-            sum = sum + parseInt(table.rows[i].cells[4].innerHTML);
-        }
-        if(confirm("Tổng tiền hóa đơn: " + sum) == true){
-            location.reload();
-        }else{
-            location.reload();
-        }
-        console.log(sum);
+    $("#bt_thanhtoan").click(function() {
+        var idhd = $("#idhd").val();
+        // var idkh = $("#idkh").val();
+        // var idnv = $("#idnv").val();
+
+        var data1 = $("#frmhd").serialize();
+        $.ajax({
+            type: "POST",
+            url: "ihd.php",
+            data: data1,
+            success: function (data1) {
+                if (data1 == "loi") {
+                    alert("ID Hóa Đơn Đã Tồn Tại");
+                } else {
+                    var table = document.getElementById("tb_hoadon");
+                    for (var i = 1; i < table.rows.length; i++) {
+                        $kt = table.rows[i].cells[1].innerHTML;
+                        $sl = table.rows[i].cells[2].innerHTML;
+                        $.ajax({
+                            type: "POST",
+                            url: "icthd.php",
+                            data: {idhd:idhd,kt:$kt,sl:$sl},
+                            success: function (data) {
+                                if (data == "loi") {
+                                    console.log("lỗi");
+                                    
+                                }
+                            }
+                        });
+                    }
+                    var sum = 0;
+                    for (var i = 1; i < table.rows.length; i++) {
+                        sum = sum + parseInt(table.rows[i].cells[4].innerHTML);
+                    }
+                    if(confirm("Tổng tiền hóa đơn: " + sum) == true){
+                        location.reload();
+                    }else{
+                        location.reload();
+                    }
+                    console.log(sum);
+                            }
+                        }
+                    });
+
 
     });
 

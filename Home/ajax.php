@@ -6,10 +6,10 @@ if(isset($_POST['id'])){
     $id=$_POST['id'];
   
 $sql="SELECT kt.TenKhauTrang, kt.IDKhauTrang FROM khautrang kt ,nhacungcap hkt WHERE kt.idNCC=hkt.idNCC AND hkt.idNCC='{$id}'";
-    $query=mysqli_query($conn,$sql); echo "<option>TenKT</option>";
+    $query=mysqli_query($conn,$sql); echo "<option></option>";
     while($row=mysqli_fetch_assoc($query)){
-       $kt=$row['IDKhauTrang'];
-       $khautrang=$row['TenKhauTrang'];
+       $kt = $row['IDKhauTrang'];
+       $khautrang =  $row['TenKhauTrang'];
       
        echo "<option value='$kt'>$khautrang</option>";
     }
@@ -22,17 +22,17 @@ $sql="SELECT kt.TenKhauTrang, kt.IDKhauTrang FROM khautrang kt ,nhacungcap hkt W
     $tong=0;
     while($row=mysqli_fetch_assoc($query)){
    //  $kq=$row['Gia'];
-  $tong=$tong+$row['Gia']*$_POST['sl'];
+   $tong=$tong+$row['Gia']*$_POST['sl'];
     echo '<tr>
          <td>'.$row['idNCC'].'</td>
-         <td>'. $row['TenKhauTrang'] . '</td>
+         <td>'. $row['IDKhauTrang'] . '</td>
          <td>'.$_POST['sl']. '</td>
          <td>'.$row['Gia'].'</td>
          <td>'. $row['Gia']*$_POST['sl'].'</td>
          
          </tr> ';
    }
-   echo $tong;
+   // echo $tong;
    
  }else{
     echo 'Cần điền số lượng';
