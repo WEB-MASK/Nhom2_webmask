@@ -57,7 +57,11 @@ $(document).ready(function() {
         for (var i = 1; i < table.rows.length; i++) {
             sum = sum + parseInt(table.rows[i].cells[4].innerHTML);
         }
-        confirm("Tổng tiền hóa đơn: " + sum);
+        if(confirm("Tổng tiền hóa đơn: " + sum) == true){
+            location.reload();
+        }else{
+            location.reload();
+        }
         console.log(sum);
 
     });
